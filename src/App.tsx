@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { z } from 'zod';
 import './App.css';
-import { BinaryTextInput, DecimalTextOutput, Label } from './styles';
+import { BinaryTextInput, Container, DecimalTextOutput, Label } from './styles';
 
 const binarySchema = z.string().regex(/^([01]+)$/).max(8).or(z.literal(""))
 
@@ -27,7 +27,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <Container>
         <Label>Binary:</Label>
         <BinaryTextInput type="text" value={binary} onChange={(e) => {
           const newValue = e.target.value
@@ -35,11 +35,11 @@ function App() {
             setBinary(newValue)
           }
         }} />
-      </div>
-      <div>
+      </Container>
+      <Container>
         <Label>Decimal:</Label>
         <DecimalTextOutput value={binaryToDecimal(binary)} disabled />
-      </div>
+      </Container>
     </>
   )
 }
