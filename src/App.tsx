@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { z } from 'zod';
 import './App.css';
 
-const binarySchema = z.string().regex(/^([01]+)$/)
+const binarySchema = z.string().regex(/^([01]+)$/).max(8).or(z.literal(""))
 
 const binaryToDecimal = (binary: string) => {
   let ans = 0
