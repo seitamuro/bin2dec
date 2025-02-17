@@ -41,12 +41,10 @@ export const GlobalStyle = createGlobalStyle<{ theme: typeof lightTheme }>`
 
 const fadeIn = keyframes`
   from {
-    opacity: 0;
-    transform: translateY(-10px);
+    background: ${props => props.theme.outputBg};
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    background: ${props => props.theme.outputBg};
   }
 `;
 
