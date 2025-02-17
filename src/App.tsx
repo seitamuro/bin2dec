@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
-import { BinaryDigitTextInput, DecimalTextOutput, Digit8Container } from './styles';
+import { BinaryDigitTextInput, DecimalTextOutput, Digit8Container, Label } from './styles';
 
 function App() {
   const [decimalNumber, setDecimalNumber] = useState(0)
@@ -18,6 +18,7 @@ function App() {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+      <Label>Binary</Label>
       <Digit8Container>
         {Array(8).fill(0).map((_, index) => (
           <BinaryDigitTextInput
@@ -54,6 +55,10 @@ function App() {
           />
         ))}
       </Digit8Container>
+
+      <hr style={{ width: "100%", borderColor: "#333333", marginBottom: "10px" }} />
+
+      <Label>Decimal</Label>
       <DecimalTextOutput value={decimalNumber} readOnly />
     </div>
   )

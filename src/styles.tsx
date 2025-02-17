@@ -34,3 +34,8 @@ export const DecimalTextOutput = styled.input`
   margin: 10px;
   padding: 5px;
 `
+
+export const Label = styled.label`
+  font-size: 36px;
+  margin: 10px;
+`
