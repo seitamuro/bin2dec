@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 export const Digit8Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(8, 0);
-  gap: 4rem;
-  margin: 10px;
+  display: flex;
+  justify-self: center;
 `
 
 export const BinaryDigitTextInput = styled.input`
-  margin: 0px;
+  margin: 10px;
   border-radius: 5px; 
   border: 1px solid #a3a3a3;
   outline: none;
@@ -30,4 +28,8 @@ export const DecimalTextOutput = styled.input`
   padding: 10px;
   border-radius: 2px;
   outline: none;
+  text-align: center;
+  font-size: 28px;
+  margin: 10px;
+  padding: 5px;
 `
