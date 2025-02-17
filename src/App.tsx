@@ -1,30 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { z } from 'zod';
 import './App.css';
-import { BinaryDigitTextInput, BinaryTextInput, Container, DecimalTextOutput, Digit8Container, Label } from './styles';
-
-const binarySchema = z.string().regex(/^([01]+)$/).max(8).or(z.literal(""))
-
-const binaryToDecimal = (binary: string) => {
-  let ans = 0
-  let cnt = 0;
-  for (const char of Array.from(binary).reverse()) {
-    if (char === "1") {
-      ans += Math.pow(2, cnt)
-    }
-    cnt += 1
-  }
-
-  return ans
-}
+import { BinaryDigitTextInput, Digit8Container } from './styles';
 
 function App() {
-  const [binary, setBinary] = useState('0')
-  const isValidBinary = (value: string) => {
-    const result = binarySchema.safeParse(value)
-    return result.success
-  }
-
   const inputRefs = useRef<HTMLInputElement[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   useEffect(() => {
@@ -65,20 +43,6 @@ function App() {
           />
         ))}
       </Digit8Container>
-
-      <Container>
-        <Label>Binary:</Label>
-        <BinaryTextInput type="text" value={binary} onChange={(e) => {
-          const newValue = e.target.value
-          if (isValidBinary(newValue)) {
-            setBinary(newValue)
-          }
-        }} />
-      </Container>
-      <Container>
-        <Label>Decimal:</Label>
-        <DecimalTextOutput value={binaryToDecimal(binary)} disabled />
-      </Container>
     </>
   )
 }
