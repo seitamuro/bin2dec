@@ -39,15 +39,6 @@ export const GlobalStyle = createGlobalStyle<{ theme: typeof lightTheme }>`
   }
 `;
 
-const fadeIn = keyframes`
-  from {
-    background: ${props => props.theme.outputBg};
-  }
-  to {
-    background: ${props => props.theme.outputBg};
-  }
-`;
-
 const highlight = keyframes`
   0% {
     background: ${props => props.theme.outputBg};
@@ -94,7 +85,6 @@ export const Digit8Container = styled.div`
   justify-content: center;
   gap: 12px;
   padding: 20px;
-  animation: ${fadeIn} 0.6s ease-out;
 `;
 
 export const BinaryDigitTextInput = styled.input`
@@ -136,7 +126,7 @@ export const DecimalTextOutput = styled.input`
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
   transition: all 0.2s ease;
-  animation: ${fadeIn} 0.6s ease-out, ${highlight} 0.6s ease-out;
+  animation: ${highlight} 0.6s ease-out;
 
   &:focus {
     outline: none;
@@ -149,7 +139,6 @@ export const Label = styled.label`
   font-weight: 600;
   color: ${props => props.theme.labelText};
   margin: 16px 0 8px;
-  animation: ${fadeIn} 0.6s ease-out;
   
   &:first-of-type {
     margin-top: 0;
