@@ -15,6 +15,7 @@ export const BinaryDigitTextInput = styled.input`
   display: flex;
   text-align: center;
   font-size: 28px;
+  caret-color: transparent;
 
   &:focus {
     border: 1px solid orange;
