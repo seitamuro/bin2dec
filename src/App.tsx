@@ -3,6 +3,8 @@ import './App.css';
 import { BinaryDigitTextInput, Digit8Container } from './styles';
 
 function App() {
+  const [decimalNumber, setDecimalNumber] = useState(0)
+
   const inputRefs = useRef<HTMLInputElement[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   useEffect(() => {
@@ -30,19 +32,31 @@ function App() {
             onKeyDown={(e) => {
               e.preventDefault()
               if (e.key === "0") {
-                inputRefs.current[index].value = "0"
                 setCurrentIndex((prev) => Math.min(prev + 1, 7))
+                if (inputRefs.current[index].value === "1") {
+                  setDecimalNumber(prev => prev - Math.pow(2, 7 - index))
+                }
+                inputRefs.current[index].value = "0"
               } else if (e.key === "1") {
-                inputRefs.current[index].value = "1"
                 setCurrentIndex((prev) => Math.min(prev + 1, 7))
+                if (inputRefs.current[index].value === "0") {
+                  setDecimalNumber(prev => prev + Math.pow(2, 7 - index))
+                }
+                inputRefs.current[index].value = "1"
               } else if (e.key === "Backspace") {
-                inputRefs.current[index].value = "0"
                 setCurrentIndex((prev) => Math.max(prev - 1, 0))
+                if (inputRefs.current[index].value === "1") {
+                  setDecimalNumber(prev => prev - Math.pow(2, 7 - index))
+                }
+                inputRefs.current[index].value = "0"
               }
             }}
           />
         ))}
       </Digit8Container>
+      <div>
+        {decimalNumber}
+      </div>
     </>
   )
 }
