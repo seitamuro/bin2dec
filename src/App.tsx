@@ -17,7 +17,18 @@ function App() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+    <div style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      width: "100%",
+      maxWidth: "800px",
+      margin: "40px auto",
+      padding: "40px",
+      background: "white",
+      borderRadius: "24px",
+      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+    }}>
       <Label>Binary</Label>
       <Digit8Container>
         {Array(8).fill(0).map((_, index) => (
@@ -56,7 +67,13 @@ function App() {
         ))}
       </Digit8Container>
 
-      <hr style={{ width: "100%", borderColor: "#333333", marginBottom: "10px" }} />
+      <hr style={{
+        width: "100%",
+        border: "none",
+        height: "2px",
+        background: "linear-gradient(to right, #e2e8f0, #4299e1, #e2e8f0)",
+        margin: "32px 0"
+      }} />
 
       <Label>Decimal</Label>
       <DecimalTextOutput value={decimalNumber} readOnly />
