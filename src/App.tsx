@@ -71,7 +71,7 @@ function App() {
         <Divider />
 
         <Label>Decimal</Label>
-        <DecimalTextOutput value={decimalNumber} readOnly />
+        <DecimalTextOutput key={decimalNumber} value={decimalNumber} readOnly />
         <ThemeToggleButton onClick={() => setIsDarkMode(!isDarkMode)}>
           {isDarkMode ? "ライトモード" : "ダークモード"}
         </ThemeToggleButton>

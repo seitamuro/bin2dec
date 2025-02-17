@@ -50,6 +50,18 @@ const fadeIn = keyframes`
   }
 `;
 
+const highlight = keyframes`
+  0% {
+    background: ${props => props.theme.outputBg};
+  }
+  50% {
+    background: rgba(66, 153, 225, 0.2);
+  }
+  100% {
+    background: ${props => props.theme.outputBg};
+  }
+`;
+
 const pulse = keyframes`
   0% {
     transform: scale(1);
@@ -126,7 +138,7 @@ export const DecimalTextOutput = styled.input`
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
   transition: all 0.2s ease;
-  animation: ${fadeIn} 0.6s ease-out;
+  animation: ${fadeIn} 0.6s ease-out, ${highlight} 0.6s ease-out;
 
   &:focus {
     outline: none;
